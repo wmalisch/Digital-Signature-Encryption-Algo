@@ -12,5 +12,6 @@ class HashCodeGenerator:
     """
     def getHashValue(self, message):
         code = 0
-        #-----------Implement Here----------
+        for char in message:
+            code = code + ord(char)
         return code

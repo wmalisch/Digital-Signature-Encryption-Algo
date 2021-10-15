@@ -21,8 +21,8 @@ class KeyPairGenerator:
      @return generated public key.
     """
     def generateKeyPair(self):
-        pb_key = 0
-        #-----------Implement Here----------
+        self.privateKey = random.randint(1,self.modulo - 1)
+        pb_key = self.modulo - self.privateKey
         return pb_key
 
     #Getter/Setter Methods

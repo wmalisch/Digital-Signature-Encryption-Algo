@@ -23,8 +23,8 @@ def main():
      Create a KeyPairGenerator object using the key_pair_generator module. Next, 
      call the appropriate function to generate the public and private key pair. 
     """ 
-    keypair = None #Key Pair object
-    publicKeyForMessage1 = None  # Call the appropriate function using keyPair object to generate the public and private key pair.
+    keypair = key_pair_generator.KeyPairGenerator()
+    publicKeyForMessage1 = keypair.generateKeyPair() 
 
     #----------------------- End of Key Generation -------------------------
 
@@ -34,8 +34,8 @@ def main():
      Create a DigitalSignature object using the digital_signature module. Call the
      appropriate functions to create and authenticate the digital signature. 
     """
-    dg = None                # Digitalsignature Object
-    digitalSignature = None  # call appropriate function to create the digital signature.
+    dg = digital_signature.DigitalSignature()
+    digitalSignature = dg.createDigitalSignature(message1, keypair.getPrivateKey(), keypair.getModulo())  # call appropriate function to create the digital signature.
                              # use message1 as the message and use the keypair object created
                              # above to supply the private key and modulo  
     # ---------------- End Digital Signature Creation and Verification ---------

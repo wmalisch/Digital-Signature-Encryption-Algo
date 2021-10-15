@@ -28,8 +28,7 @@ class DigitalSignature:
     """
 
     def createDigitalSignature(self, message, pr_key, modulo):
-        encryptedCode = 0
-        #-----------Implement Here----------
+        encryptedCode = (self.hasher.getHashValue(message) + pr_key) % modulo        
         return encryptedCode
 
     """
@@ -47,6 +46,5 @@ class DigitalSignature:
      @return true if message is authenticate otherwise false
     """
     def verifyDigitalSignature(self, message, digital_sign, pb_key, modulo):
-        extractedHash = None
-        #-----------Implement Here----------
-        return false
+        extractedHash = (digital_sign + pb_key) % modulo
+        return True if extractedHash == self.hasher.getHashValue(message) else False
